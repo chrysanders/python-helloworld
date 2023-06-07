@@ -5,10 +5,10 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: linux-latest
     strategy:
       matrix:
-        python-version: [2.7, 3.9, 3.10]
+        python-version: [3.5.9, 3.9.9, 3.10.0]
 
     steps:
     - uses: actions/checkout@v2
