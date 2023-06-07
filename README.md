@@ -4,4 +4,4 @@
 
 #Another line that works
 
-## A working git that supports newbies.
+## Working with git that supports newbies.
