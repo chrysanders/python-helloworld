@@ -1,11 +1,11 @@
-name: Pytest
+name: ci
 
 on: [push]
 
 jobs:
   build:
 
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [3.5, 3.8, 3.9, 3.10.0]
@@ -24,3 +24,12 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v4.0.0
+      with:
+        context: .
+        file: ./Dockerfile
+        platforms: linux/amd64
+        push: true
+        tags:  chrysanders/python-helloworld:latest
+
